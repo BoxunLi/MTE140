@@ -1,12 +1,12 @@
 #include "lab3_priority_queue.hpp"
-
+#include <iostream>;
 using namespace std;
 
 // PURPOSE: Parametric constructor
 // initializes heap to an array of (n_capacity + 1) elements
 PriorityQueue::PriorityQueue(unsigned int n_capacity) {
 	heap = new TaskItem*[n_capacity +1];
-	capicity = n_capacity;
+	this -> capacity = n_capacity;
 	size = 0;
 }
 
@@ -41,7 +41,7 @@ bool PriorityQueue::full() const {
 void PriorityQueue::print() const {
 	for(int i =0; i < size; i++)
 	{
-		cout<< heap[i] <<" ";
+		cout<< heap[i] << " ";
 	}
 	cout << endl;
 }
