@@ -1,5 +1,5 @@
 #include "lab3_priority_queue.hpp"
-#include <iostream>;
+#include <iostream>
 using namespace std;
 
 // PURPOSE: Parametric constructor
@@ -50,7 +50,7 @@ void PriorityQueue::print() const {
 // if the priority queue is empty, it returns (-1, "N/A")
 PriorityQueue::TaskItem PriorityQueue::max() const {
 	if(this->empty())
-		return TaskItem(-1, "NULL");
+		return TaskItem(-1, "N/A");
 
 	return heap[1];
 }
@@ -69,7 +69,7 @@ bool PriorityQueue::enqueue( TaskItem val ) {
 	else{
 		int i = size+1;
 		heap[i] = new TaskItem(val);
-		while(i>1 && heal[i/2] ->priority < heap[i]-> priority)
+		while(i>1 && heap[i/2] ->priority < heap[i]-> priority)
 		{
 			TaskItem* temp = heap[i/2];
 			heap[i]= heap[i/2];
@@ -98,11 +98,11 @@ bool PriorityQueue::dequeue() {
 	}
 	else{
 		heap[1]= heap[size];
-		remove heap[size];
-		heal[size] = NULL;
+		delete heap[size];
+		heap[size] = NULL;
 
 		int i = size-1;
-		while(i>1 && heal[i/2] -> priority < heap[i] -> priority)
+		while(i>1 && heap[i/2] -> priority < heap[i] -> priority)
 		{
 			TaskItem* temp = heap[i/2];
 			heap[i]= heap[i/2];
